@@ -16,7 +16,7 @@
 <?rfc sortrefs="no" ?>
 <?rfc strict="yes" ?>
 
-<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-10" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-11" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
 	<front>
 		<title abbrev="CLUE data channel">
 			CLUE Protocol data channel
@@ -381,13 +381,15 @@
 		</section>
 
 		<section anchor="section.sec" title="Security Considerations">
-			<t>
-				This specification does not introduce new security considerations, in addition to those
-				defined in <xref target="I-D.ietf-rtcweb-data-channel" pageno="false" format="default" /> 
-				and <xref target="I-D.ietf-rtcweb-data-protocol" pageno="false" format="default" />. Security 
-				considerations associated with the CLUE protocol are defined in <xref target="I-D.ietf-clue-protocol" 
-				pageno="false" format="default" />.
-			</t>
+            <t>
+                This specification relies on the security properties of the WebRTC data channel described in
+                <xref target="I-D.ietf-rtcweb-data-channel" pageno="false" format="default" /> and
+                <xref target="I-D.ietf-rtcweb-data-protocol" pageno="false" format="default" />, including
+                reliance on DTLS. Since CLUE sessions are established using SIP/SDP, protecting the data
+                channel against message modification and recovery requires the use of SIP authentication
+                and authorization mechanisms described in <xref target="RFC3261" pageno="false" format="default" />
+                for session establishment prior to establishing the data channel.
+            </t>
 		</section>
 		<section anchor="section.iana" title="IANA Considerations">
 			<section anchor="section.iana.dc" title="New WebRTC data channel Protocol Value">
@@ -419,6 +421,15 @@
 			<t>
 				[RFC EDITOR NOTE: Please remove this section when publishing]
 			</t>
+			<t>
+				Changes from draft-ietf-clue-datachannel-10
+				<list style="symbols">
+					<t>
+                        Security Considerations modified and enhanced, based on comments
+                        provided by Alissa Cooper.
+                    </t>
+				</list>
+			</t>			
 			<t>
 				Changes from draft-ietf-clue-datachannel-09
 				<list style="symbols">
@@ -596,9 +607,9 @@
 					<author fullname="Simon Pietro Romano" initials="S P.R" surname="Romano">
 						<organization>University of Napoli</organization>
 					</author>
-					<date day="22" month="April" year="2015" />
+					<date day="19" month="October" year="2015" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-protocol-04.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-protocol-06.txt" />
 			</reference>		
 			<reference anchor="I-D.ietf-clue-signaling">
 				<front>
@@ -698,9 +709,9 @@
 					<author fullname="Jerome Marcon" initials="J.M" surname="Marcon">
 						<organization>Unaffiliated</organization>
 					</author>
-					<date day="4" month="August" year="2015" />
+					<date day="19" month="October" year="2015" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-data-channel-sdpneg-04.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-data-channel-sdpneg-06.txt" />
 			</reference>								
 		</references>
 		<references title="Informative References">
