@@ -16,7 +16,7 @@
 <?rfc sortrefs="no" ?>
 <?rfc strict="yes" ?>
 
-<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-11" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-12" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
 	<front>
 		<title abbrev="CLUE data channel">
 			CLUE Protocol data channel
@@ -34,7 +34,7 @@
 			</address>
 		</author>
 
-		<date year="2015" />
+		<date year="2016" />
 		<area>Transport</area>
 		<workgroup>CLUE Working Group</workgroup>
 		<keyword>SIP</keyword>
@@ -313,7 +313,7 @@
 							CLUE entities SHOULD NOT transport the SCTPoDTLS association used to
 							realize the CLUE data channel over TCP (using the "TCP/DTLS/SCTP"
 							proto value), unless it is known that UDP/DTLS/SCTP will not work
-							(for instance, when the the Interactive Connectivity Establishment
+							(for instance, when the Interactive Connectivity Establishment
 							(ICE) mechanism <xref format="default" pageno="false" target="RFC5245"/> 
 							is used and the ICE procedures determine that TCP transport is required).
 						</t>
@@ -406,6 +406,7 @@
 	Subprotocl Identifier:		CLUE
 	Subprotocol Common Name:	CLUE
 	Subprotocol Definition:		RFC-XXXX
+    Reference:                  RFC-XXXX
 
 				]]></artwork>
 			</figure>
@@ -421,6 +422,20 @@
 			<t>
 				[RFC EDITOR NOTE: Please remove this section when publishing]
 			</t>
+			<t>
+				Changes from draft-ietf-clue-datachannel-11
+				<list style="symbols">
+					<t>
+                        Changes based on WGLC comments from Juergen Stoetzer-Bradler and Christian groves:
+                    </t>
+                    <t>
+                        - Referene updates.
+                    </t>
+                    <t>
+                        - 'Reference' added to IANA registration data.
+                    </t>
+				</list>
+			</t>			
 			<t>
 				Changes from draft-ietf-clue-datachannel-10
 				<list style="symbols">
@@ -627,9 +642,9 @@
 					<author fullname="Robert Hansen" initials="S P.R" surname="Romano">
 						<organization>Cisco</organization>
 					</author>
-					<date day="27" month="October" year="2014" />
+					<date day="14" month="March" year="2016" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-signaling-06.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-signaling-08.txt" />
 			</reference>		
 			<reference anchor="I-D.ietf-tsvwg-sctp-dtls-encaps">
 				<front>
@@ -667,9 +682,9 @@
 					<author initials="G." surname="Camarillo" fullname="Gonzalo Camarillo">
 						<organization>Ericsson</organization>
 					</author>
-					<date day="7" month="September" year="2015" />
+					<date day="29" month="February" year="2016" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-sctp-sdp-15.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-sctp-sdp-16.txt" />
 			</reference>		
 			<reference anchor="I-D.ietf-rtcweb-data-channel">
 				<front>
@@ -709,9 +724,9 @@
 					<author fullname="Jerome Marcon" initials="J.M" surname="Marcon">
 						<organization>Unaffiliated</organization>
 					</author>
-					<date day="19" month="October" year="2015" />
+					<date day="17" month="February" year="2016" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-data-channel-sdpneg-06.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-data-channel-sdpneg-08.txt" />
 			</reference>								
 		</references>
 		<references title="Informative References">
