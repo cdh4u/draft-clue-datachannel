@@ -3,12 +3,12 @@
 
 CLUE Working Group                                           C. Holmberg
 Internet-Draft                                                  Ericsson
-Intended status: Standards Track                          March 17, 2016
-Expires: September 18, 2016
+Intended status: Standards Track                           June 12, 2016
+Expires: December 14, 2016
 
 
                        CLUE Protocol data channel
-                     draft-ietf-clue-datachannel-12
+                     draft-ietf-clue-datachannel-13
 
 Abstract
 
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 18, 2016.
+   This Internet-Draft will expire on December 14, 2016.
 
 Copyright Notice
 
@@ -52,9 +52,9 @@ Copyright Notice
 
 
 
-Holmberg               Expires September 18, 2016               [Page 1]
+Holmberg                Expires December 14, 2016               [Page 1]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
    (http://trustee.ietf.org/license-info) in effect on the date of
@@ -108,9 +108,9 @@ Table of Contents
 
 
 
-Holmberg               Expires September 18, 2016               [Page 2]
+Holmberg                Expires December 14, 2016               [Page 2]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
    negotiation mechanism [I-D.ietf-mmusic-data-channel-sdpneg].  This
@@ -164,9 +164,9 @@ Internet-Draft              CLUE data channel                 March 2016
 
 
 
-Holmberg               Expires September 18, 2016               [Page 3]
+Holmberg                Expires December 14, 2016               [Page 3]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
 3.  CLUE data channel
@@ -220,9 +220,9 @@ Internet-Draft              CLUE data channel                 March 2016
 
 
 
-Holmberg               Expires September 18, 2016               [Page 4]
+Holmberg                Expires December 14, 2016               [Page 4]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
 3.2.3.  Reliability
@@ -230,7 +230,7 @@ Internet-Draft              CLUE data channel                 March 2016
    The usage of SCTP for the CLUE data channel ensures reliable
    transport of CLUE protocol [I-D.ietf-clue-protocol] messages.
 
-   A CLUE entity MUST NOT use the partial reliability and limited
+   A CLUE entity MUST NOT use the partial reliability or limited
    retransmission SCTP extensions, described in [RFC3758], for the CLUE
    data channel.
 
@@ -250,9 +250,11 @@ Internet-Draft              CLUE data channel                 March 2016
    A CLUE entity MUST support the stream reset extension defined in
    [RFC6525].
 
-   The dynamic address reconfiguration extension defined in [RFC5061]
-   MUST be used to signal the support of the stream reset extension
-   defined in [RFC6525].  Other features of [RFC5061] MUST NOT be used.
+   As defined in [I-D.ietf-rtcweb-data-channel], the dynamic address
+   reconfiguration extension ('Supported Extensions Parameter'
+   parameter) defined in [RFC5061] must be used to signal the support of
+   the stream reset extension defined in [RFC6525].  Other features of
+   [RFC5061] MUST NOT be used for CLUE data channels.
 
 3.2.6.  SCTP Multihoming
 
@@ -274,11 +276,9 @@ Internet-Draft              CLUE data channel                 March 2016
 
 
 
-
-
-Holmberg               Expires September 18, 2016               [Page 5]
+Holmberg                Expires December 14, 2016               [Page 5]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
 3.3.  SDP Considerations
@@ -286,14 +286,14 @@ Internet-Draft              CLUE data channel                 March 2016
 3.3.1.  General
 
    This section defines how to construct the SDP Media Description (m-
-   line) for describing the SCTPoDTLS association used to realize a
-   WebRTC data channel.  The section also defines how to use the SDP-
-   based "SCTP over DTLS" data channel negotiation mechanism
+   line) for describing the SCTPoDTLS association used to realize a CLUE
+   data channel.  The section also defines how to use the SDP-based
+   "SCTP over DTLS" data channel negotiation mechanism
    [I-D.ietf-mmusic-data-channel-sdpneg] for establishing a CLUE data
    channel on the SCTPoDTLS association.
 
    NOTE: Other protocols than SDP for negotiating usage of an SCTPoDTLS
-   association for realizing a WebRTC data channel are outside the scope
+   association for realizing a CLUE data channel are outside the scope
    of this specification.
 
    [I-D.ietf-clue-signaling] describes the SDP Offer/Answer procedures
@@ -332,9 +332,9 @@ Internet-Draft              CLUE data channel                 March 2016
 
 
 
-Holmberg               Expires September 18, 2016               [Page 6]
+Holmberg                Expires December 14, 2016               [Page 6]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
 3.3.1.2.  SDP sctp-port Attribute
@@ -388,9 +388,9 @@ Internet-Draft              CLUE data channel                 March 2016
 
 
 
-Holmberg               Expires September 18, 2016               [Page 7]
+Holmberg                Expires December 14, 2016               [Page 7]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
                    m=application 54111 UDP/DTLS/SCTP webrtc-datachannel
@@ -403,13 +403,12 @@ Internet-Draft              CLUE data channel                 March 2016
 4.  Security Considerations
 
    This specification relies on the security properties of the WebRTC
-   data channel described in [I-D.ietf-rtcweb-data-channel] and
-   [I-D.ietf-rtcweb-data-protocol], including reliance on DTLS.  Since
-   CLUE sessions are established using SIP/SDP, protecting the data
-   channel against message modification and recovery requires the use of
-   SIP authentication and authorization mechanisms described in
-   [RFC3261] for session establishment prior to establishing the data
-   channel.
+   data channel described in [I-D.ietf-rtcweb-data-channel], including
+   reliance on DTLS.  Since CLUE sessions are established using SIP/SDP,
+   protecting the data channel against message modification and recovery
+   requires the use of SIP authentication and authorization mechanisms
+   described in [RFC3261] for session establishment prior to
+   establishing the data channel.
 
 5.  IANA Considerations
 
@@ -437,18 +436,23 @@ Internet-Draft              CLUE data channel                 March 2016
 
    [RFC EDITOR NOTE: Please remove this section when publishing]
 
+   Changes from draft-ietf-clue-datachannel-12
+
+   o  Changes based on AD comments from Alissa Cooper:
+   o  - DCEP reference removed from security considerations.
+   o  - Editorial fixes.
+
+
+
+Holmberg                Expires December 14, 2016               [Page 8]
+
+Internet-Draft              CLUE data channel                  June 2016
+
+
    Changes from draft-ietf-clue-datachannel-11
 
    o  Changes based on WGLC comments from Juergen Stoetzer-Bradler and
       Christian groves:
-
-
-
-Holmberg               Expires September 18, 2016               [Page 8]
-
-Internet-Draft              CLUE data channel                 March 2016
-
-
    o  - Referene updates.
    o  - 'Reference' added to IANA registration data.
 
@@ -493,17 +497,17 @@ Internet-Draft              CLUE data channel                 March 2016
 
    Changes from draft-ietf-clue-datachannel-06
 
+
+
+
+Holmberg                Expires December 14, 2016               [Page 9]
+
+Internet-Draft              CLUE data channel                  June 2016
+
+
    o  Usage of DCEP removed.
 
    Changes from draft-ietf-clue-datachannel-05
-
-
-
-
-Holmberg               Expires September 18, 2016               [Page 9]
-
-Internet-Draft              CLUE data channel                 March 2016
-
 
    o  "DTLS/SCTP" split into "UDP/DTLS/SCTP" and "TCP/DTLS/SCTP".
    o  Removed note regarding optionality of including the SDP sctp-port
@@ -549,18 +553,17 @@ Internet-Draft              CLUE data channel                 March 2016
 
    o  Draft submitted as draft-ietf-clue-data-channel-00.
    o  Editorial nits fixed.
+
+
+
+Holmberg                Expires December 14, 2016              [Page 10]
+
+Internet-Draft              CLUE data channel                  June 2016
+
+
    o  Changes based on comments from Paul Kyzivat (http://www.ietf.org/
       mail-archive/web/clue/current/msg03559.html).
    o  - Proto value fixed.
-
-
-
-
-Holmberg               Expires September 18, 2016              [Page 10]
-
-Internet-Draft              CLUE data channel                 March 2016
-
-
    o  - Explicit text that the partial reliability and limited
       retransmission policies MUST NOT be used.
    o  - Added open issue on whether the DCEP 'protocol' field value for
@@ -609,12 +612,9 @@ Internet-Draft              CLUE data channel                 March 2016
 
 
 
-
-
-
-Holmberg               Expires September 18, 2016              [Page 11]
+Holmberg                Expires December 14, 2016              [Page 11]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
    [RFC3261]  Rosenberg, J., Schulzrinne, H., Camarillo, G., Johnston,
@@ -668,9 +668,9 @@ Internet-Draft              CLUE data channel                 March 2016
 
 
 
-Holmberg               Expires September 18, 2016              [Page 12]
+Holmberg                Expires December 14, 2016              [Page 12]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
    [I-D.ietf-tsvwg-sctp-dtls-encaps]
@@ -724,9 +724,9 @@ Author's Address
 
 
 
-Holmberg               Expires September 18, 2016              [Page 13]
+Holmberg                Expires December 14, 2016              [Page 13]
 
-Internet-Draft              CLUE data channel                 March 2016
+Internet-Draft              CLUE data channel                  June 2016
 
 
    Christer Holmberg
@@ -780,4 +780,4 @@ Internet-Draft              CLUE data channel                 March 2016
 
 
 
-Holmberg               Expires September 18, 2016              [Page 14]
+Holmberg                Expires December 14, 2016              [Page 14]
