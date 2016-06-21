@@ -1,10 +1,11 @@
 
 
 
+
 CLUE Working Group                                           C. Holmberg
 Internet-Draft                                                  Ericsson
-Intended status: Standards Track                           June 12, 2016
-Expires: December 14, 2016
+Intended status: Standards Track                           June 21, 2016
+Expires: December 23, 2016
 
 
                        CLUE Protocol data channel
@@ -40,7 +41,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 14, 2016.
+   This Internet-Draft will expire on December 23, 2016.
 
 Copyright Notice
 
@@ -52,7 +53,7 @@ Copyright Notice
 
 
 
-Holmberg                Expires December 14, 2016               [Page 1]
+Holmberg                Expires December 23, 2016               [Page 1]
 
 Internet-Draft              CLUE data channel                  June 2016
 
@@ -89,10 +90,10 @@ Table of Contents
      5.1.  New WebRTC data channel Protocol Value  . . . . . . . . .   8
    6.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   8
    7.  Change Log  . . . . . . . . . . . . . . . . . . . . . . . . .   8
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  12
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  12
      8.2.  Informative References  . . . . . . . . . . . . . . . . .  13
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  14
 
 1.  Introduction
 
@@ -108,7 +109,7 @@ Table of Contents
 
 
 
-Holmberg                Expires December 14, 2016               [Page 2]
+Holmberg                Expires December 23, 2016               [Page 2]
 
 Internet-Draft              CLUE data channel                  June 2016
 
@@ -164,7 +165,7 @@ Internet-Draft              CLUE data channel                  June 2016
 
 
 
-Holmberg                Expires December 14, 2016               [Page 3]
+Holmberg                Expires December 23, 2016               [Page 3]
 
 Internet-Draft              CLUE data channel                  June 2016
 
@@ -220,7 +221,7 @@ Internet-Draft              CLUE data channel                  June 2016
 
 
 
-Holmberg                Expires December 14, 2016               [Page 4]
+Holmberg                Expires December 23, 2016               [Page 4]
 
 Internet-Draft              CLUE data channel                  June 2016
 
@@ -276,7 +277,7 @@ Internet-Draft              CLUE data channel                  June 2016
 
 
 
-Holmberg                Expires December 14, 2016               [Page 5]
+Holmberg                Expires December 23, 2016               [Page 5]
 
 Internet-Draft              CLUE data channel                  June 2016
 
@@ -332,7 +333,7 @@ Internet-Draft              CLUE data channel                  June 2016
 
 
 
-Holmberg                Expires December 14, 2016               [Page 6]
+Holmberg                Expires December 23, 2016               [Page 6]
 
 Internet-Draft              CLUE data channel                  June 2016
 
@@ -388,7 +389,7 @@ Internet-Draft              CLUE data channel                  June 2016
 
 
 
-Holmberg                Expires December 14, 2016               [Page 7]
+Holmberg                Expires December 23, 2016               [Page 7]
 
 Internet-Draft              CLUE data channel                  June 2016
 
@@ -438,16 +439,21 @@ Internet-Draft              CLUE data channel                  June 2016
 
    Changes from draft-ietf-clue-datachannel-12
 
-   o  Changes based on AD comments from Alissa Cooper:
-   o  - DCEP reference removed from security considerations.
-   o  - Editorial fixes.
+   o  Changes based on AD comments from Alissa Cooper
+      (https://www.ietf.org/mail-archive/web/clue/current/
+      msg04911.html):
 
 
 
-Holmberg                Expires December 14, 2016               [Page 8]
+Holmberg                Expires December 23, 2016               [Page 8]
 
 Internet-Draft              CLUE data channel                  June 2016
 
+
+   o  - DCEP reference removed from security considerations.
+   o  - Editorial fixes.
+   o  - NOTE: Comment regarding the Security Considerations is still
+      pending.
 
    Changes from draft-ietf-clue-datachannel-11
 
@@ -492,18 +498,18 @@ Internet-Draft              CLUE data channel                  June 2016
    o  - Clarify that same SCTP options are applied to each SCTP message
       associated with a given data channel.
    o  - Switched location of sections 3.2 and 3.3.
+
+
+
+Holmberg                Expires December 23, 2016               [Page 9]
+
+Internet-Draft              CLUE data channel                  June 2016
+
+
    o  - PPID table removed.  Not needed, since only one value is used.
    o  - Editorial corrections.
 
    Changes from draft-ietf-clue-datachannel-06
-
-
-
-
-Holmberg                Expires December 14, 2016               [Page 9]
-
-Internet-Draft              CLUE data channel                  June 2016
-
 
    o  Usage of DCEP removed.
 
@@ -549,18 +555,17 @@ Internet-Draft              CLUE data channel                  June 2016
    o  SDP Offer/Answer procedures structures according to RFC 3264.
    o  Reference update.
 
-   Changes from draft-holmberg-clue-datachannel-04
-
-   o  Draft submitted as draft-ietf-clue-data-channel-00.
-   o  Editorial nits fixed.
 
 
-
-Holmberg                Expires December 14, 2016              [Page 10]
+Holmberg                Expires December 23, 2016              [Page 10]
 
 Internet-Draft              CLUE data channel                  June 2016
 
 
+   Changes from draft-holmberg-clue-datachannel-04
+
+   o  Draft submitted as draft-ietf-clue-data-channel-00.
+   o  Editorial nits fixed.
    o  Changes based on comments from Paul Kyzivat (http://www.ietf.org/
       mail-archive/web/clue/current/msg03559.html).
    o  - Proto value fixed.
@@ -601,6 +606,18 @@ Internet-Draft              CLUE data channel                  June 2016
 
    o  Editorial corrections based on comments from Paul K
 
+
+
+
+
+
+
+
+Holmberg                Expires December 23, 2016              [Page 11]
+
+Internet-Draft              CLUE data channel                  June 2016
+
+
 8.  References
 
 8.1.  Normative References
@@ -609,13 +626,6 @@ Internet-Draft              CLUE data channel                  June 2016
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <http://www.rfc-editor.org/info/rfc2119>.
-
-
-
-Holmberg                Expires December 14, 2016              [Page 11]
-
-Internet-Draft              CLUE data channel                  June 2016
-
 
    [RFC3261]  Rosenberg, J., Schulzrinne, H., Camarillo, G., Johnston,
               A., Peterson, J., Sparks, R., Handley, M., and E.
@@ -657,21 +667,17 @@ Internet-Draft              CLUE data channel                  June 2016
               Presta, R. and S. Romano, "CLUE protocol", draft-ietf-
               clue-protocol-06.txt (work in progress), October 2015.
 
+
+
+Holmberg                Expires December 23, 2016              [Page 12]
+
+Internet-Draft              CLUE data channel                  June 2016
+
+
    [I-D.ietf-clue-signaling]
               Kyzivat, P., Xiao, L., Groves, C., and S. Romano, "CLUE
               Signaling", draft-ietf-clue-signaling-08.txt (work in
               progress), March 2016.
-
-
-
-
-
-
-
-Holmberg                Expires December 14, 2016              [Page 12]
-
-Internet-Draft              CLUE data channel                  June 2016
-
 
    [I-D.ietf-tsvwg-sctp-dtls-encaps]
               Tuexen, M., Stewart, R., Jesup, R., and S. Loreto, "DTLS
@@ -714,20 +720,17 @@ Internet-Draft              CLUE data channel                  June 2016
               Establishment Protocol", draft-ietf-rtcweb-data-protocol-
               09.txt (work in progress), January 2015.
 
-Author's Address
 
 
 
 
 
-
-
-
-
-Holmberg                Expires December 14, 2016              [Page 13]
+Holmberg                Expires December 23, 2016              [Page 13]
 
 Internet-Draft              CLUE data channel                  June 2016
 
+
+Author's Address
 
    Christer Holmberg
    Ericsson
@@ -778,6 +781,4 @@ Internet-Draft              CLUE data channel                  June 2016
 
 
 
-
-
-Holmberg                Expires December 14, 2016              [Page 14]
+Holmberg                Expires December 23, 2016              [Page 14]

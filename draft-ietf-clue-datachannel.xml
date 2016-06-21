@@ -424,13 +424,16 @@
 				Changes from draft-ietf-clue-datachannel-12
 				<list style="symbols">
 					<t>
-              Changes based on AD comments from Alissa Cooper:
+              Changes based on AD comments from Alissa Cooper (https://www.ietf.org/mail-archive/web/clue/current/msg04911.html):
           </t>
 					<t>
 						  - DCEP reference removed from security considerations.
 					</t>
 					<t>
 						  - Editorial fixes.
+					</t>
+					<t>
+						  - NOTE: Comment regarding the Security Considerations is still pending.
 					</t>
 				</list>
 			</t>
