@@ -14,7 +14,7 @@
 <?rfc sortrefs="no" ?>
 <?rfc strict="yes" ?>
 
-<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-13" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-14" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
 	<front>
 		<title abbrev="CLUE data channel">
 			CLUE Protocol data channel
@@ -76,7 +76,8 @@
 				mechanism <xref target="I-D.ietf-rtcweb-data-channel"
 				pageno="false" format="default" /> in order to realize a
 				data channel, referred to as a CLUE data channel, for
-				transporting CLUE protocol messages between two CLUE entities.
+				transporting CLUE protocol <xref target="I-D.ietf-clue-protocol"
+				pageno="false" format="default" />messages between two CLUE entities.
 			</t>
 			<t>
 				The document defines how to describe the SCTPoDTLS association
@@ -421,6 +422,14 @@
 				[RFC EDITOR NOTE: Please remove this section when publishing]
 			</t>
 			<t>
+				Changes from draft-ietf-clue-datachannel-13
+				<list style="symbols">
+					<t>
+              Editorial changes based on Gen-ART review from Brian Carpenter.
+          </t>
+				</list>
+			</t>
+			<t>
 				Changes from draft-ietf-clue-datachannel-12
 				<list style="symbols">
 					<t>
@@ -625,7 +634,7 @@
 			<?rfc include="reference.RFC.4960"?>
 			<?rfc include="reference.RFC.5061"?>
 			<?rfc include="reference.RFC.6525"?>
-            <?rfc include="reference.RFC.7496"?>
+      <?rfc include="reference.RFC.7496"?>
 			<reference anchor="I-D.ietf-clue-protocol">
 				<front>
 					<title abbrev="CLUE protocol">
@@ -637,9 +646,9 @@
 					<author fullname="Simon Pietro Romano" initials="S P.R" surname="Romano">
 						<organization>University of Napoli</organization>
 					</author>
-					<date day="19" month="October" year="2015" />
+					<date day="13" month="May" year="2016" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-protocol-06.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-protocol-08.txt" />
 			</reference>
 			<reference anchor="I-D.ietf-clue-signaling">
 				<front>
@@ -657,9 +666,9 @@
 					<author fullname="Robert Hansen" initials="S P.R" surname="Romano">
 						<organization>Cisco</organization>
 					</author>
-					<date day="14" month="March" year="2016" />
+					<date day="21" month="March" year="2016" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-signaling-08.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-signaling-09.txt" />
 			</reference>
 			<reference anchor="I-D.ietf-tsvwg-sctp-dtls-encaps">
 				<front>
@@ -739,9 +748,9 @@
 					<author fullname="Jerome Marcon" initials="J.M" surname="Marcon">
 						<organization>Unaffiliated</organization>
 					</author>
-					<date day="17" month="February" year="2016" />
+					<date day="25" month="July" year="2016" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-data-channel-sdpneg-08.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-data-channel-sdpneg-09.txt" />
 			</reference>
 		</references>
 		<references title="Informative References">
