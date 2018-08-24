@@ -14,7 +14,7 @@
 <?rfc sortrefs="no" ?>
 <?rfc strict="yes" ?>
 
-<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-14" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-15" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
 	<front>
 		<title abbrev="CLUE data channel">
 			CLUE Protocol data channel
@@ -32,7 +32,7 @@
 			</address>
 		</author>
 
-		<date year="2016" />
+		<date year="2018" />
 		<area>Transport</area>
 		<workgroup>CLUE Working Group</workgroup>
 		<keyword>SIP</keyword>
@@ -81,10 +81,9 @@
 			</t>
 			<t>
 				The document defines how to describe the SCTPoDTLS association
-				<xref target="I-D.ietf-tsvwg-sctp-dtls-encaps" pageno="false"
-				format="default" /> used to realize the CLUE data channel using
-				the Session Description Protocol (SDP) <xref target="RFC4566"
-				pageno="false" format="default" />, and defines usage of the
+				<xref target="RFC8261" pageno="false" format="default" /> used to 
+                realize the CLUE data channel using the Session Description Protocol (SDP) 
+                <xref target="RFC4566" pageno="false" format="default" />, and defines usage of the
 				SDP-based "SCTP over DTLS" data channel negotiation mechanism
 				<xref target="I-D.ietf-mmusic-data-channel-sdpneg"
 				pageno="false" format="default" />. This includes SCTP
@@ -112,8 +111,7 @@
 			</t>
 			<t>
 				SCTPoDTLS association refers to an SCTP association carried
-				over an DTLS connection <xref target="I-D.ietf-tsvwg-sctp-dtls-encaps"
-				pageno="false" format="default" />.
+				over an DTLS connection <xref target="RFC8261" pageno="false" format="default" />.
 			</t>
 			<t>
 				WebRTC data channel refers to a pair of SCTP streams over a
@@ -314,7 +312,7 @@
 							realize the CLUE data channel over TCP (using the "TCP/DTLS/SCTP"
 							proto value), unless it is known that UDP/DTLS/SCTP will not work
 							(for instance, when the Interactive Connectivity Establishment
-							(ICE) mechanism <xref format="default" pageno="false" target="RFC5245"/>
+							(ICE) mechanism <xref format="default" pageno="false" target="RFC8445"/>
 							is used and the ICE procedures determine that TCP transport is required).
 						</t>
 						<t>
@@ -368,14 +366,14 @@
 
 				<section anchor="section.oa.example" title="Example" toc="default">
 					<figure anchor="figure_SDP_example" title="SDP Media Description for a CLUE data channel">
-              				<artwork><![CDATA[
+                        <artwork><![CDATA[
 
-		m=application 54111 UDP/DTLS/SCTP webrtc-datachannel
-		a=sctp-port: 5000
-		a=dcmap:2 subprotocol="CLUE";ordered=true
+        m=application 54111 UDP/DTLS/SCTP webrtc-datachannel
+        a=sctp-port: 5000
+        a=dcmap:2 subprotocol="CLUE";ordered=true
 
-           				]]></artwork>
-            		</figure>
+                         ]]></artwork>
+                    </figure>
 				</section>
 			</section>
 		</section>
@@ -422,11 +420,22 @@
 				[RFC EDITOR NOTE: Please remove this section when publishing]
 			</t>
 			<t>
+				Changes from draft-ietf-clue-datachannel-14
+				<list style="symbols">
+				<t>
+                    ICE reference update.
+                </t>
+				<t>
+                    Reference draft versions updates.
+                </t>
+				</list>
+			</t>
+			<t>
 				Changes from draft-ietf-clue-datachannel-13
 				<list style="symbols">
-					<t>
-              Editorial changes based on Gen-ART review from Brian Carpenter.
-          </t>
+				<t>
+                    Editorial changes based on Gen-ART review from Brian Carpenter.
+                </t>
 				</list>
 			</t>
 			<t>
@@ -453,7 +462,7 @@
                         Changes based on WGLC comments from Juergen Stoetzer-Bradler and Christian groves:
                     </t>
                     <t>
-                        - Referene updates.
+                        - Reference updates.
                     </t>
                     <t>
                         - 'Reference' added to IANA registration data.
@@ -627,14 +636,15 @@
 	</middle>
 	<back>
 		<references title="Normative References">
-			<?rfc include="reference.RFC.2119"?>
-			<?rfc include="reference.RFC.3261"?>
-			<?rfc include="reference.RFC.3264"?>
-			<?rfc include="reference.RFC.4566"?>
-			<?rfc include="reference.RFC.4960"?>
-			<?rfc include="reference.RFC.5061"?>
-			<?rfc include="reference.RFC.6525"?>
-      <?rfc include="reference.RFC.7496"?>
+            <?rfc include="reference.RFC.2119"?>
+            <?rfc include="reference.RFC.3261"?>
+            <?rfc include="reference.RFC.3264"?>
+            <?rfc include="reference.RFC.4566"?>
+            <?rfc include="reference.RFC.4960"?>
+            <?rfc include="reference.RFC.5061"?>
+            <?rfc include="reference.RFC.6525"?>
+            <?rfc include="reference.RFC.7496"?>
+            <?rfc include="reference.RFC.8261"?>
 			<reference anchor="I-D.ietf-clue-protocol">
 				<front>
 					<title abbrev="CLUE protocol">
@@ -646,9 +656,9 @@
 					<author fullname="Simon Pietro Romano" initials="S P.R" surname="Romano">
 						<organization>University of Napoli</organization>
 					</author>
-					<date day="13" month="May" year="2016" />
+					<date day="6" month="August" year="2018" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-protocol-08.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-protocol-16.txt" />
 			</reference>
 			<reference anchor="I-D.ietf-clue-signaling">
 				<front>
@@ -666,30 +676,9 @@
 					<author fullname="Robert Hansen" initials="S P.R" surname="Romano">
 						<organization>Cisco</organization>
 					</author>
-					<date day="21" month="March" year="2016" />
+					<date day="20" month="November" year="2017" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-signaling-09.txt" />
-			</reference>
-			<reference anchor="I-D.ietf-tsvwg-sctp-dtls-encaps">
-				<front>
-					<title abbrev="SCTP over DLTS">
-						DTLS Encapsulation of SCTP Packets
-					</title>
-					<author fullname="Michael Tuexen" initials="M.T" surname="Tuexen">
-						<organization>Muenster University of Applied Sciences</organization>
-					</author>
-					<author fullname="Randall Stewart" initials="R.S" surname="Stewart">
-						<organization>Adara Networks</organization>
-					</author>
-					<author fullname="Randell Jesup" initials="R.J" surname="Jesup">
-						<organization>WorldGate Communications</organization>
-					</author>
-					<author fullname="Salvatore Loreto" initials="S.L" surname="Loreto">
-						<organization>Ericsson</organization>
-					</author>
-					<date day="5" month="August" year="2015" />
-				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-tsvwg-sctp-dtls-encaps-09.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-clue-signaling-13.txt" />
 			</reference>
 			<reference anchor="I-D.ietf-mmusic-sctp-sdp">
 				<front>
@@ -706,9 +695,9 @@
 					<author initials="G." surname="Camarillo" fullname="Gonzalo Camarillo">
 						<organization>Ericsson</organization>
 					</author>
-					<date day="29" month="February" year="2016" />
+					<date day="20" month="April" year="2017" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-sctp-sdp-16.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-sctp-sdp-26.txt" />
 			</reference>
 			<reference anchor="I-D.ietf-rtcweb-data-channel">
 				<front>
@@ -748,14 +737,14 @@
 					<author fullname="Jerome Marcon" initials="J.M" surname="Marcon">
 						<organization>Unaffiliated</organization>
 					</author>
-					<date day="25" month="July" year="2016" />
+					<date day="23" month="June" year="2018" />
 				</front>
-				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-data-channel-sdpneg-09.txt" />
+				<seriesInfo name="Internet-Draft" value="draft-ietf-mmusic-data-channel-sdpneg-20.txt" />
 			</reference>
 		</references>
 		<references title="Informative References">
 			<?rfc include="reference.RFC.3758"?>
-			<?rfc include="reference.RFC.5245"?>
+			<?rfc include="reference.RFC.8445"?>
 			<reference anchor="I-D.ietf-rtcweb-data-protocol">
 				<front>
 					<title abbrev="WebRTC data channel Establishment Protocol">
