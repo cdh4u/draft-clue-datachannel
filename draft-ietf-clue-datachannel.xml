@@ -55,17 +55,6 @@
 				as a CLUE data channel, for transporting CLUE protocol
 				messages between two CLUE entities.
 			</t>
-			<t>
-				The document defines how to describe the SCTPoDTLS association
-				used to realize the CLUE data channel using the Session Description
-				Protocol (SDP), and defines usage of SDP-based "SCTP over DTLS" data
-				channel negotiation mechanism for establishing a CLUE data channel.
-			</t>
-			<t>
-				Details and procedures associated with the CLUE protocol, and the
-				SDP Offer/Answer procedures for negotiating usage of a CLUE data
-				channel, are outside the scope of this document.
-			</t>
 		</abstract>
 	</front>
 
@@ -203,7 +192,7 @@
    						NOTE: As described in <xref target="I-D.ietf-rtcweb-data-channel"
 						pageno="false" format="default" />, the PPID value 51 indicates that
 						the SCTP message contains data encoded in a UTF-8 format. The PPID
-						value 51 does not indicate what application protocol the SCTP message
+						value 51 does not indicate which application protocol the SCTP message
 						is associated with, only the format in which the data is encoded.
 					</t>
 				</section>
@@ -218,7 +207,8 @@
 					   	requires the support of the partial reliability extension defined in <xref target="RFC3758" 
 					   	pageno="false" format="default" /> and the limited retransmission policy defined in
 					   	<xref target="RFC7496" pageno="false" format="default" />. A CLUE entity MUST NOT use 
-						these extensions, as messages are required to always be sent reliably.
+						these extensions, as messages are required to always be sent reliably. A CLUE entity MUST 
+						terminate the session if it detects that the peer entity uses any of the extensions.
 					</t>
 				</section>
 				<section anchor="section.cdc.sctp.order" title="Order" toc="default">
@@ -318,7 +308,8 @@
 						<t>
 							As defined in <xref target="I-D.ietf-mmusic-sctp-sdp" pageno="false" format="default"/>,
 							the SDP sctp-port attribute value is set to the SCTP port of the SCTPoDTLS association. A
-							CLUE entity can choose any valid SCTP port value.
+							CLUE entity can choose any valid SCTP port value <xref target="I-D.ietf-mmusic-sctp-sdp"
+							pageno="false" format="default"/>.
 						</t>
 					</section>
 				</section>
@@ -358,6 +349,11 @@
 				</section>
 
 				<section anchor="section.oa.example" title="Example" toc="default">
+					<t>
+						The example in <xref target="figure_SDP_example" pageno="false" format="default" /> shows 
+						an SDP media description for a CLUE data channel. Examples of complete SDP examples can be found 
+						in <xref target="I-D.ietf-clue-signaling" pageno="false" format="default" />.
+					</t>
 					<figure anchor="figure_SDP_example" title="SDP Media Description for a CLUE data channel">
                         <artwork><![CDATA[
 
