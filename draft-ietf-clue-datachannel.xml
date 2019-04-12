@@ -77,7 +77,7 @@
 				<xref target="I-D.ietf-mmusic-data-channel-sdpneg"
 				pageno="false" format="default" />. This includes SCTP
 				considerations specific to a CLUE data channel, the SDP Media
-				Description (m- line) values, and usage of SDP attributes specific
+				Description ("m=" line) values, and usage of SDP attributes specific
 				to a CLUE data channel.
 			</t>
 			<t>
@@ -93,11 +93,13 @@
 			</t>
 		</section>
 		<section title="Conventions" toc="default">
-			<t>
-				The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
-				"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted
-				as described in BCP 14, RFC 2119 <xref target="RFC2119" pageno="false" format="default" />.
-			</t>
+      		<t>
+        		The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+        		NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+        		"MAY", and "OPTIONAL" in this document are to be interpreted as
+        		described in BCP 14 <xref target="RFC2119"></xref> <xref target="RFC8174"></xref>
+        		when, and only when, they appear in all capitals, as shown here.
+      		</t>
 			<t>
 				SCTPoDTLS association refers to an SCTP association carried
 				over an DTLS connection <xref target="RFC8261" pageno="false" format="default" />.
@@ -146,7 +148,7 @@
 					This section describes the realization of a CLUE data channel,
 					using the WebRTC data channel mechanism.
 					This includes a set of SCTP characteristics specific to a
-					CLUE data channel, the values of the m- line describing
+					CLUE data channel, the values of the "m=" line describing
 					the SCTPoDTLS association associated with the WebRTC
 					data channel, and the usage of the SDP-based "SCTP
 					over DTLS" data channel negotiation mechanism for creating the
@@ -240,7 +242,7 @@
 				</section>
 				<section anchor="section.cdcp.proc.close" title="Close CLUE data channel" toc="default">
 					<t>
-						As described in <xref target="I-D.ietf-rtcweb-data-protocol" pageno="false"
+						As described in <xref target="I-D.ietf-rtcweb-data-channel" pageno="false"
 						format="default" />, in order to close a data channel, an entity sends an SCTP reset
 						message <xref target="RFC6525" pageno="false" format="default" /> on its outgoing
 						SCTP stream associated with the data channel. When the remote peer receives the reset
@@ -255,7 +257,7 @@
 				<section anchor="section.oa.gen" title="General" toc="default">
 					<t>
 						This section defines how to construct the SDP Media Description
-						(m- line) for describing the SCTPoDTLS association used to realize
+						("m=" line) for describing the SCTPoDTLS association used to realize
 						a CLUE data channel. The section also defines how to use the
 						SDP-based "SCTP over DTLS" data  channel negotiation mechanism
 						<xref target="I-D.ietf-mmusic-data-channel-sdpneg" /> for establishing
@@ -274,7 +276,7 @@
 					<section anchor="section.oa.mediadesc" title="SDP Media Description Fields" toc="default">
 						<t>
 							As defined in <xref target="I-D.ietf-mmusic-sctp-sdp" pageno="false" format="default" />,
-							the field values of an m- line describing an SCTPoDTLS association are set as following:
+							the field values of an "m=" line describing an SCTPoDTLS association are set as following:
 						</t>
 						<texttable anchor="table_SDP_mediadesc" title='SDP "proto" field values'>
 							<ttcol align='center'>media</ttcol>
@@ -316,7 +318,7 @@
 				<section anchor="section.oa.dcmap" title="SDP dcmap Attribute" toc="default">
 					<t>
 						The values of the SDP dcmap attribute <xref target="I-D.ietf-mmusic-data-channel-sdpneg"
-						pageno="false" format="default" />, associated with the m- line describing the SCTPoDTLS
+						pageno="false" format="default" />, associated with the "m=" line describing the SCTPoDTLS
 						association used to realize the WebRTC data channel, are set as following:
 					</t>
 					<texttable anchor="table_SDP_dcmap" title='SDP dcmap attribute values'>
@@ -551,7 +553,7 @@
 			<t>
 				Changes from draft-ietf-clue-datachannel-02
 				<list style="symbols">
-					<t>SDP m- line example fixed.</t>
+					<t>SDP "m=" line example fixed.</t>
 					<t>OPEN ISSUE #1 closed.</t>
 					<t>- It was agreed (IETF#91) to use draft-ejzak-mmusic-data-channel-sdpneg,
 						as it was adopted as a WG item in MMUSIC.
@@ -588,7 +590,7 @@
 					<t>- Added open issue on whether the DCEP 'protocol' field value for CLUE
 						should contain a version number.</t>
 					<t>- Removed paragraph saying that an offerer must not insert more than
-						one m- line describing an SCTPoDTLS association to be used to
+						one "m=" line describing an SCTPoDTLS association to be used to
 						realize a CLUE data channel, as the draft already states that
 						only one CLUE data channel per CLUE session shall be opened.</t>
 					<t>- Added reference to draft-ietf-rtcweb-data-protocol regarding details
@@ -641,6 +643,7 @@
             <?rfc include="reference.RFC.5061"?>
             <?rfc include="reference.RFC.6525"?>
             <?rfc include="reference.RFC.7496"?>
+			<?rfc include="reference.RFC.8174"?>
             <?rfc include="reference.RFC.8261"?>
 			<reference anchor="I-D.ietf-clue-protocol">
 				<front>
