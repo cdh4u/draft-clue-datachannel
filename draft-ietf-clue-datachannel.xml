@@ -240,7 +240,7 @@
 						not be used for a CLUE data channel.
 					</t>
 				</section>
-				<section anchor="section.cdcp.proc.close" title="Close CLUE data channel" toc="default">
+				<section anchor="section.cdcp.proc.close" title="Closing the CLUE data channel" toc="default">
 					<t>
 						As described in <xref target="I-D.ietf-rtcweb-data-channel" pageno="false"
 						format="default" />, in order to close a data channel, an entity sends an SCTP reset
