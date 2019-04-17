@@ -14,7 +14,7 @@
 <?rfc sortrefs="no" ?>
 <?rfc strict="yes" ?>
 
-<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-15" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="std" docName="draft-ietf-clue-datachannel-16" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
 	<front>
 		<title abbrev="CLUE data channel">
 			CLUE Protocol data channel
@@ -55,17 +55,6 @@
 				as a CLUE data channel, for transporting CLUE protocol
 				messages between two CLUE entities.
 			</t>
-			<t>
-				The document defines how to describe the SCTPoDTLS association
-				used to realize the CLUE data channel using the Session Description
-				Protocol (SDP), and defines usage of SDP-based "SCTP over DTLS" data
-				channel negotiation mechanism for establishing a CLUE data channel.
-			</t>
-			<t>
-				Details and procedures associated with the CLUE protocol, and the
-				SDP Offer/Answer procedures for negotiating usage of a CLUE data
-				channel, are outside the scope of this document.
-			</t>
 		</abstract>
 	</front>
 
@@ -77,7 +66,7 @@
 				pageno="false" format="default" /> in order to realize a
 				data channel, referred to as a CLUE data channel, for
 				transporting CLUE protocol <xref target="I-D.ietf-clue-protocol"
-				pageno="false" format="default" />messages between two CLUE entities.
+				pageno="false" format="default" /> messages between two CLUE entities.
 			</t>
 			<t>
 				The document defines how to describe the SCTPoDTLS association
@@ -88,7 +77,7 @@
 				<xref target="I-D.ietf-mmusic-data-channel-sdpneg"
 				pageno="false" format="default" />. This includes SCTP
 				considerations specific to a CLUE data channel, the SDP Media
-				Description (m- line) values, and usage of SDP attributes specific
+				Description ("m=" line) values, and usage of SDP attributes specific
 				to a CLUE data channel.
 			</t>
 			<t>
@@ -98,17 +87,19 @@
 				the scope of this document.
 			</t>
 			<t>
-				NOTE: The usage of the data channel Establishment Protocol (DCEP)
+				NOTE: The usage of the Data Channel Establishment Protocol (DCEP)
 				<xref target="I-D.ietf-rtcweb-data-protocol" pageno="false" format="default" />
 				for establishing a CLUE data channel is outside the scope of this document.
 			</t>
 		</section>
 		<section title="Conventions" toc="default">
-			<t>
-				The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
-				"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted
-				as described in BCP 14, RFC 2119 <xref target="RFC2119" pageno="false" format="default" />.
-			</t>
+      		<t>
+        		The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+        		NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+        		"MAY", and "OPTIONAL" in this document are to be interpreted as
+        		described in BCP 14 <xref target="RFC2119"></xref> <xref target="RFC8174"></xref>
+        		when, and only when, they appear in all capitals, as shown here.
+      		</t>
 			<t>
 				SCTPoDTLS association refers to an SCTP association carried
 				over an DTLS connection <xref target="RFC8261" pageno="false" format="default" />.
@@ -157,7 +148,7 @@
 					This section describes the realization of a CLUE data channel,
 					using the WebRTC data channel mechanism.
 					This includes a set of SCTP characteristics specific to a
-					CLUE data channel, the values of the m- line describing
+					CLUE data channel, the values of the "m=" line describing
 					the SCTPoDTLS association associated with the WebRTC
 					data channel, and the usage of the SDP-based "SCTP
 					over DTLS" data channel negotiation mechanism for creating the
@@ -182,10 +173,10 @@
 					<t>
 						As described in <xref target="I-D.ietf-rtcweb-data-channel"
 						pageno="false" format="default" />, different SCTP options
-						(e.g. regarding ordered delivery ), can be used for a
+						(e.g., regarding ordered delivery ), can be used for a
 						data channel. This section describes the SCTP options
 						used for a CLUE data channel. <xref target="section.oa" pageno="false"
-						format="default" /> describes how SCTP options are signalled using SDP.
+						format="default" /> describes how SCTP options are signaled using SDP.
 					</t>
 					<t>
 						NOTE: While SCTP allows SCTP options to be applied per SCTP message,
@@ -203,29 +194,23 @@
    						NOTE: As described in <xref target="I-D.ietf-rtcweb-data-channel"
 						pageno="false" format="default" />, the PPID value 51 indicates that
 						the SCTP message contains data encoded in a UTF-8 format. The PPID
-						value 51 does not indicate what application protocol the SCTP message
+						value 51 does not indicate which application protocol the SCTP message
 						is associated with, only the format in which the data is encoded.
 					</t>
 				</section>
 				<section anchor="section.cdc.sctp.reliability" title="Reliability" toc="default">
 					<t>
-						The usage of SCTP for the CLUE data channel ensures reliable
-						transport of CLUE protocol <xref target="I-D.ietf-clue-protocol"
-						pageno="false" format="default" /> messages.
+						The usage of SCTP for the CLUE data channel ensures reliable transport of 
+						CLUE protocol <xref target="I-D.ietf-clue-protocol" pageno="false" format="default" />
+						messages.
 					</t>
 					<t>
-						A CLUE entity MUST NOT use the partial reliability or limited retransmission
-						SCTP extensions, described in <xref target="RFC3758" pageno="false" format="default" />,
-						for the CLUE data channel.
-					</t>
-					<t>
-						NOTE: <xref target="I-D.ietf-rtcweb-data-channel" pageno="false" format="default" />
-						requires the support of the partial reliability extension defined in
-						<xref target="RFC3758" pageno="false" format="default" />. This is not needed for
-						a CLUE data channel, as messages are required to always be sent reliably.
-						<xref target="I-D.ietf-rtcweb-data-channel" pageno="false" format="default" /> also
-						mandates support of the limited retransmission policy defined in
-						<xref target="RFC7496" pageno="false" format="default" />.
+						<xref target="I-D.ietf-rtcweb-data-channel" pageno="false" format="default" />
+					   	requires the support of the partial reliability extension defined in <xref target="RFC3758" 
+					   	pageno="false" format="default" /> and the limited retransmission policy defined in
+					   	<xref target="RFC7496" pageno="false" format="default" />. A CLUE entity MUST NOT use 
+						these extensions, as messages are required to always be sent reliably. A CLUE entity MUST 
+						terminate the session if it detects that the peer entity uses any of the extensions.
 					</t>
 				</section>
 				<section anchor="section.cdc.sctp.order" title="Order" toc="default">
@@ -255,9 +240,9 @@
 						not be used for a CLUE data channel.
 					</t>
 				</section>
-				<section anchor="section.cdcp.proc.close" title="Close CLUE data channel" toc="default">
+				<section anchor="section.cdcp.proc.close" title="Closing the CLUE data channel" toc="default">
 					<t>
-						As described in <xref target="I-D.ietf-rtcweb-data-protocol" pageno="false"
+						As described in <xref target="I-D.ietf-rtcweb-data-channel" pageno="false"
 						format="default" />, in order to close a data channel, an entity sends an SCTP reset
 						message <xref target="RFC6525" pageno="false" format="default" /> on its outgoing
 						SCTP stream associated with the data channel. When the remote peer receives the reset
@@ -272,7 +257,7 @@
 				<section anchor="section.oa.gen" title="General" toc="default">
 					<t>
 						This section defines how to construct the SDP Media Description
-						(m- line) for describing the SCTPoDTLS association used to realize
+						("m=" line) for describing the SCTPoDTLS association used to realize
 						a CLUE data channel. The section also defines how to use the
 						SDP-based "SCTP over DTLS" data  channel negotiation mechanism
 						<xref target="I-D.ietf-mmusic-data-channel-sdpneg" /> for establishing
@@ -291,7 +276,7 @@
 					<section anchor="section.oa.mediadesc" title="SDP Media Description Fields" toc="default">
 						<t>
 							As defined in <xref target="I-D.ietf-mmusic-sctp-sdp" pageno="false" format="default" />,
-							the field values of an m- line describing an SCTPoDTLS association are set as following:
+							the field values of an "m=" line describing an SCTPoDTLS association are set as following:
 						</t>
 						<texttable anchor="table_SDP_mediadesc" title='SDP "proto" field values'>
 							<ttcol align='center'>media</ttcol>
@@ -325,14 +310,15 @@
 						<t>
 							As defined in <xref target="I-D.ietf-mmusic-sctp-sdp" pageno="false" format="default"/>,
 							the SDP sctp-port attribute value is set to the SCTP port of the SCTPoDTLS association. A
-							CLUE entity can choose any valid SCTP port value.
+							CLUE entity can choose any valid SCTP port value <xref target="I-D.ietf-mmusic-sctp-sdp"
+							pageno="false" format="default"/>.
 						</t>
 					</section>
 				</section>
 				<section anchor="section.oa.dcmap" title="SDP dcmap Attribute" toc="default">
 					<t>
 						The values of the SDP dcmap attribute <xref target="I-D.ietf-mmusic-data-channel-sdpneg"
-						pageno="false" format="default" />, associated with the m- line describing the SCTPoDTLS
+						pageno="false" format="default" />, associated with the "m=" line describing the SCTPoDTLS
 						association used to realize the WebRTC data channel, are set as following:
 					</t>
 					<texttable anchor="table_SDP_dcmap" title='SDP dcmap attribute values'>
@@ -365,6 +351,11 @@
 				</section>
 
 				<section anchor="section.oa.example" title="Example" toc="default">
+					<t>
+						The example in <xref target="figure_SDP_example" pageno="false" format="default" /> shows 
+						an SDP media description for a CLUE data channel. Examples of complete SDP examples can be found 
+						in <xref target="I-D.ietf-clue-signaling" pageno="false" format="default" />.
+					</t>
 					<figure anchor="figure_SDP_example" title="SDP Media Description for a CLUE data channel">
                         <artwork><![CDATA[
 
@@ -418,6 +409,14 @@
 		<section title="Change Log">
 			<t>
 				[RFC EDITOR NOTE: Please remove this section when publishing]
+			</t>
+			<t>
+				Changes from draft-ietf-clue-datachannel-15
+				<list style="symbols">
+				<t>
+                    Updates based on IESG review by Roman Danyliw.
+                </t>
+				</list>
 			</t>
 			<t>
 				Changes from draft-ietf-clue-datachannel-14
@@ -554,7 +553,7 @@
 			<t>
 				Changes from draft-ietf-clue-datachannel-02
 				<list style="symbols">
-					<t>SDP m- line example fixed.</t>
+					<t>SDP "m=" line example fixed.</t>
 					<t>OPEN ISSUE #1 closed.</t>
 					<t>- It was agreed (IETF#91) to use draft-ejzak-mmusic-data-channel-sdpneg,
 						as it was adopted as a WG item in MMUSIC.
@@ -591,7 +590,7 @@
 					<t>- Added open issue on whether the DCEP 'protocol' field value for CLUE
 						should contain a version number.</t>
 					<t>- Removed paragraph saying that an offerer must not insert more than
-						one m- line describing an SCTPoDTLS association to be used to
+						one "m=" line describing an SCTPoDTLS association to be used to
 						realize a CLUE data channel, as the draft already states that
 						only one CLUE data channel per CLUE session shall be opened.</t>
 					<t>- Added reference to draft-ietf-rtcweb-data-protocol regarding details
@@ -644,6 +643,7 @@
             <?rfc include="reference.RFC.5061"?>
             <?rfc include="reference.RFC.6525"?>
             <?rfc include="reference.RFC.7496"?>
+			<?rfc include="reference.RFC.8174"?>
             <?rfc include="reference.RFC.8261"?>
 			<reference anchor="I-D.ietf-clue-protocol">
 				<front>
