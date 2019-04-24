@@ -14,7 +14,7 @@
 <?rfc sortrefs="no" ?>
 <?rfc strict="yes" ?>
 
-<rfc ipr="trust200902" category="exp" docName="draft-ietf-clue-datachannel-17" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
+<rfc ipr="trust200902" category="exp" docName="draft-ietf-clue-datachannel-18" obsoletes="" updates="" submissionType="IETF" xml:lang="en">
 	<front>
 		<title abbrev="CLUE data channel">
 			CLUE Protocol data channel
@@ -51,7 +51,7 @@
 		<abstract>
 			<t>
 				This document defines how to use the WebRTC data channel
-				mechanism in order to realize a data channel, referred to
+				mechanism to realize a data channel, referred to
 				as a CLUE data channel, for transporting CLUE protocol
 				messages between two CLUE entities.
 			</t>
@@ -63,7 +63,7 @@
 			<t>
 				This document defines how to use the WebRTC data channel
 				mechanism <xref target="I-D.ietf-rtcweb-data-channel"
-				pageno="false" format="default" /> in order to realize a
+				pageno="false" format="default" /> to realize a
 				data channel, referred to as a CLUE data channel, for
 				transporting CLUE protocol <xref target="I-D.ietf-clue-protocol"
 				pageno="false" format="default" /> messages between two CLUE entities.
@@ -243,7 +243,7 @@
 				<section anchor="section.cdcp.proc.close" title="Closing the CLUE data channel" toc="default">
 					<t>
 						As described in <xref target="I-D.ietf-rtcweb-data-channel" pageno="false"
-						format="default" />, in order to close a data channel, an entity sends an SCTP reset
+						format="default" />, to close a data channel, an entity sends an SCTP reset
 						message <xref target="RFC6525" pageno="false" format="default" /> on its outgoing
 						SCTP stream associated with the data channel. When the remote peer receives the reset
 						message, it also sends (unless already sent) a reset message on its outgoing SCTP
@@ -275,8 +275,10 @@
 					</t>
 					<section anchor="section.oa.mediadesc" title="SDP Media Description Fields" toc="default">
 						<t>
-							As defined in <xref target="I-D.ietf-mmusic-sctp-sdp" pageno="false" format="default" />,
-							the field values of an "m=" line describing an SCTPoDTLS association are set as following:
+						    <xref target="I-D.ietf-mmusic-sctp-sdp" pageno="false" format="default" /> defines how
+							to set the values of an "m=" line describing an SCTPoDTLS association. As defined in
+							<xref target="I-D.ietf-mmusic-sctp-sdp" pageno="false" format="default" />, for a 
+							CLUE data channel the values are set as following:
 						</t>
 						<texttable anchor="table_SDP_mediadesc" title='SDP "proto" field values'>
 							<ttcol align='center'>media</ttcol>
@@ -286,11 +288,11 @@
 							<c>"application"</c>
 							<c>UDP port value</c>
 							<c>"UDP/DTLS/SCTP"</c>
-							<c>application usage</c>
+							<c>"webrtc-datachannel"</c>
 							<c>"application"</c>
 							<c>TCP port value</c>
 							<c>"TCP/DTLS/SCTP"</c>
-							<c>application usage</c>
+							<c>"webrtc-datachannel"</c>
 						</texttable>
 						<t>
 							CLUE entities SHOULD NOT transport the SCTPoDTLS association used to
@@ -299,11 +301,6 @@
 							(for instance, when the Interactive Connectivity Establishment
 							(ICE) mechanism <xref format="default" pageno="false" target="RFC8445"/>
 							is used and the ICE procedures determine that TCP transport is required).
-						</t>
-						<t>
-							As defined in <xref target="I-D.ietf-mmusic-sctp-sdp" pageno="false" format="default" />, when
-							the SCTPoDTLS association is used to realize a WebRTC data channel, the value of the
-							application usage part is 'webrtc-datachannel'.
 						</t>
 					</section>
 					<section anchor="section.oa.sctpport" title="SDP sctp-port Attribute" toc="default">
@@ -323,14 +320,14 @@
 					</t>
 					<texttable anchor="table_SDP_dcmap" title='SDP dcmap attribute values'>
 						<ttcol align='center'>stream-id</ttcol>
-						<ttcol align='center'>subprotocol</ttcol>
+						<ttcol align='center'>sub-protocol</ttcol>
 						<ttcol align='center'>label</ttcol>
 						<ttcol align='center'>ordered</ttcol>
 						<ttcol align='center'>max-retr</ttcol>
 						<ttcol align='center'>max-time</ttcol>
 						<c>Value of the SCTP stream used to realize the CLUE data channel</c>
 						<c>"CLUE"</c>
-						<c>Application specific</c>
+						<c>Appli-cation specific</c>
 						<c>"true"</c>
 						<c>N/A</c>
 						<c>N/A</c>
@@ -409,6 +406,14 @@
 		<section title="Change Log">
 			<t>
 				[RFC EDITOR NOTE: Please remove this section when publishing]
+			</t>
+			<t>
+				Changes from draft-ietf-clue-datachannel-17
+				<list style="symbols">
+				<t>
+                    Editorial changes to Tables based on TSV-ART review.
+                </t>
+				</list>
 			</t>
 			<t>
 				Changes from draft-ietf-clue-datachannel-16
